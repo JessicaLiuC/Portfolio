@@ -1,12 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-rgb: 255, 255, 255;
+}
+
+header {
+  padding: 2%;
+  padding-left: 8%;
+  padding-right: 8%;
+  background-color: #ffffff;
+  justify-content: space-between;
+  align-items: center;
 }
 
 body {

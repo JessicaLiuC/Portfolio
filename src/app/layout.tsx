@@ -1,10 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Chien-Chi Liu - Portfolio",
   description: "Personal portfolio of Chien-Chi Liu - Designer and Developer",
-  viewport: "width=device-width, initial-scale=1.0",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export default function RootLayout({
