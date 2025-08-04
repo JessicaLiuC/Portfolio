@@ -129,6 +129,23 @@ a {
   font-style: normal;
 }
 
+/* Custom responsive font sizes */
+.text-xs {
+  font-size: 6pt;
+}
+
+.text-lg {
+  font-size: 16pt;
+}
+
+.text-xl {
+  font-size: 20pt;
+}
+
+.text-2xl {
+  font-size: 24pt;
+}
+
 .text-3xl {
   font-size: 48pt;
 }
@@ -137,14 +154,38 @@ a {
   font-size: 88pt;
 }
 
-.text-2xl {
-  font-size: 24pt;
+/* Responsive variants for large screens (lg: 1024px and up) */
+@media (min-width: 1024px) {
+  .lg\:text-xs {
+    font-size: 6pt;
+  }
+
+  .lg\:text-lg {
+    font-size: 16pt;
+  }
+
+  .lg\:text-xl {
+    font-size: 20pt;
+  }
+
+  .lg\:text-2xl {
+    font-size: 24pt;
+  }
+
+  .lg\:text-3xl {
+    font-size: 48pt;
+  }
+
+  .lg\:text-5xl {
+    font-size: 88pt;
+  }
+
+  .lg\:text-6xl {
+    font-size: 72pt;
+  }
+
+  .lg\:text-8xl {
+    font-size: 120pt;
+  }
 }
 
-.text-xl {
-  font-size: 20pt;
-}
-
-.text-lg {
-  font-size: 16pt;
-}
