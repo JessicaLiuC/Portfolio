@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -7,12 +8,12 @@ const Header = () => {
         CHIEN CHI
       </a>
       <nav className="flex gap-[2rem] md:flex-row md:gap-[5rem]">
-        <a href="/work" className="md:text-xl text-sm text-[#000000] hover:text-gray-600 transition-colors font-normal tracking-wide">
+        <a href="/" className="md:text-xl text-sm text-[#000000] hover:text-gray-600 transition-colors font-normal tracking-wide">
           WORK
         </a>
-        <a href="/about" className="md:text-xl text-sm text-[#000000] hover:text-gray-600 transition-colors font-normal tracking-wide">
+        <Link href="/Projects/about" className="md:text-xl text-sm text-[#000000] hover:text-gray-600 transition-colors font-normal tracking-wide">
           ABOUT
-        </a>
+        </Link>
         <a href="/resume" className="md:text-xl text-sm text-[#000000] hover:text-gray-600 transition-colors font-normal tracking-wide">
           RESUME
         </a>
