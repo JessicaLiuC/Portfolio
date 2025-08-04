@@ -2,7 +2,7 @@
 
 const Hero = () => {
   return (
-    <section className="lg:min-h-screen min-h-[50vh] lg:flex items-center justify-center lg:px-[8%] px-[2%] py-8 bg-gray-50 relative overflow-hidden">
+    <section className="lg:min-h-screen min-h-[50vh] lg:flex items-center justify-center lg:px-[8%] px-[2%] py-8 bg-gray-50 relative overflow-hidden lg:mb-10">
       {/* Character Image - Large and Centered Behind Everything */}
       <div className="absolute inset-0 flex items-center justify-center z-0 lg:ml-30">
         <div className="w-[50vw] h-[60vh] lg:w-[80vw] lg:h-[120vh] max-w-[800px] max-h-[1000px]">

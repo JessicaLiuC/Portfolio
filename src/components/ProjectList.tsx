@@ -10,6 +10,11 @@ interface Project {
 }
 
 const Projects = () => {
+  // Helper function to format title for mobile (remove line breaks)
+  const formatTitleForMobile = (title: string) => {
+    return title.replace(/\n/g, ' ');
+  };
+
   const projects: Project[] = [
     {
       id: 1,
@@ -46,13 +51,43 @@ const Projects = () => {
   ];
 
   return (
-    <section id="work" className="py-16 bg-white px-[8%]">
+    <section id="work" className="py-16 bg-white px-[5%] lg:px-[8%]">
       <div className="max-w-full mx-auto">
-        <h2 className="text-4xl montserrat-medium text-center text-gray-800 mb-20 mt-40">
+        <h2 className="text-[16pt] lg:text-4xl montserrat-medium text-center text-gray-800 mb-10 lg:mb-20 lg:mt-40">
           Projects I've worked on recently
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Mobile Layout */}
+        <div className="block lg:hidden space-y-8">
+          {projects.map((project) => (
+            <div 
+              key={project.id} 
+              className="rounded-[10px] p-2 pb-6 cursor-pointer border border-gray-400"
+            >
+              {/* Project Image */}
+              <div className="mb-6 flex justify-center">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full max-w-[350px] h-auto object-contain"
+                />
+              </div>
+              
+              {/* Project Info */}
+              <div className="text-right">
+                <h3 className="text-xl text-gray-800 mb-3 montserrat-regular leading-tight">
+                  {formatTitleForMobile(project.title)}
+                </h3>
+                <p className="text-md text-gray-600 montserrat-alternates-regular">
+                  {project.role}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <div 
               key={project.id} 
