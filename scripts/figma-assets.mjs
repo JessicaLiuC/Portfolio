@@ -15,9 +15,13 @@ for (const [format, assets] of Object.entries(byFormat)) {
   const { images, err } = await api(`images/${fileKey}?ids=${ids}&format=${format}${format === "png" ? "&scale=2" : ""}`);
   if (err) throw new Error(err);
   for (const [out, id] of Object.entries(assets)) {
+    // Figma returns null for nodes it could not render (deleted, hidden, empty).
+    if (!images?.[id]) throw new Error(`Figma could not render node ${id} for ${out}`);
+    const res = await fetch(images[id]);
+    if (!res.ok) throw new Error(`Downloading ${out} failed: ${res.status} ${res.statusText}`);
     const file = join("public", out);
     await mkdir(dirname(file), { recursive: true });
-    await writeFile(file, Buffer.from(await (await fetch(images[id])).arrayBuffer()));
+    await writeFile(file, Buffer.from(await res.arrayBuffer()));
     console.log("✓", out);
   }
 }

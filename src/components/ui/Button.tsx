@@ -30,8 +30,10 @@ export function Button({ variant = "primary", size = "md", href, className, type
   );
 
   if (href) {
+    // External links (Spotify, etc.) open in a new tab so the visitor keeps their place on the site.
+    const external = /^https?:\/\//.test(href);
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} {...(external && { target: "_blank", rel: "noopener noreferrer" })}>
         {props.children}
       </Link>
     );
