@@ -1,4 +1,5 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
+import { montserrat } from "@/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -6,21 +7,10 @@ export const metadata: Metadata = {
   description: "Personal portfolio of Chien-Chi Liu - Designer and Developer",
 };
 
-export const viewport: Viewport = {
-  width: "device-width",
-  initialScale: 1.0,
-};
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
-        {children}
-      </body>
+    <html lang="en" className={montserrat.variable}>
+      <body>{children}</body>
     </html>
   );
 }

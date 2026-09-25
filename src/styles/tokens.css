@@ -1,0 +1,229 @@
+/*
+ * Design tokens — mirrors Figma "Design system / Foundations".
+ * Primitives are the four Foundation ramps; components use the semantic
+ * names only (bg-*, text-*, border-*), never the primitives.
+ */
+@theme {
+  /* ── Primitives ─────────────────────────────────────────── */
+  --color-nude-sand-50: #fbf9f8;
+  --color-nude-sand-100: #f2ede8;
+  --color-nude-sand-200: #ece5dd;
+  --color-nude-sand-300: #e4d9cd;
+  --color-nude-sand-400: #ded1c4;
+  --color-nude-sand-500: #d6c6b5;
+  --color-nude-sand-600: #c3b4a5;
+  --color-nude-sand-700: #988d81;
+  --color-nude-sand-800: #766d64;
+  --color-nude-sand-900: #5a534c;
+
+  --color-grey-sage-50: #f6f6f5;
+  --color-grey-sage-100: #e2e4df;
+  --color-grey-sage-200: #d4d7d0;
+  --color-grey-sage-300: #c0c5bb;
+  --color-grey-sage-400: #b4baad;
+  --color-grey-sage-500: #a1a999;
+  --color-grey-sage-600: #939a8b;
+  --color-grey-sage-700: #72786d;
+  --color-grey-sage-800: #595d54;
+  --color-grey-sage-900: #444740;
+
+  --color-desert-clay-50: #f9f5ef;
+  --color-desert-clay-100: #ede0ce;
+  --color-desert-clay-200: #e5d1b6;
+  --color-desert-clay-300: #d9bb94;
+  --color-desert-clay-400: #d1ae80;
+  --color-desert-clay-500: #c69a60;
+  --color-desert-clay-600: #b48c57;
+  --color-desert-clay-700: #8d6d44;
+  --color-desert-clay-800: #6d5535;
+  --color-desert-clay-900: #534128;
+
+  --color-muted-forest-50: #f1f2ef;
+  --color-muted-forest-100: #d3d6ce;
+  --color-muted-forest-200: #bec2b7;
+  --color-muted-forest-300: #a0a796;
+  --color-muted-forest-400: #8d9581;
+  --color-muted-forest-500: #717b62;
+  --color-muted-forest-600: #677059;
+  --color-muted-forest-700: #505746;
+  --color-muted-forest-800: #3e4436;
+  --color-muted-forest-900: #2f3429;
+
+  /* ── Semantic: background → bg-* ───────────────────────── */
+  --background-color-page: var(--color-nude-sand-50);
+  --background-color-surface: var(--color-nude-sand-100);
+  --background-color-surface-strong: var(--color-nude-sand-200);
+  --background-color-sage: var(--color-grey-sage-100);
+  --background-color-accent-soft: var(--color-desert-clay-100);
+  --background-color-accent-muted: var(--color-desert-clay-200);
+  --background-color-accent-swatch: var(--color-desert-clay-300);
+  --background-color-accent: var(--color-desert-clay-600);
+  --background-color-inverse: var(--color-muted-forest-800);
+  --background-color-inverse-strong: var(--color-muted-forest-900);
+
+  /* ── Semantic: text → text-* ────────────────────────────── */
+  --text-color-primary: var(--color-muted-forest-900);
+  --text-color-body: var(--color-muted-forest-800);
+  --text-color-secondary: var(--color-grey-sage-800);
+  --text-color-muted: var(--color-grey-sage-700);
+  --text-color-inverse: var(--color-nude-sand-50);
+  --text-color-inverse-soft: var(--color-nude-sand-100);
+  --text-color-inverse-muted: var(--color-nude-sand-300);
+  --text-color-inverse-subtle: var(--color-grey-sage-300);
+  --text-color-accent: var(--color-desert-clay-700);
+  --text-color-accent-strong: var(--color-desert-clay-800);
+  --text-color-dev: var(--color-muted-forest-600);
+
+  /* ── Semantic: border → border-* ────────────────────────── */
+  --border-color-hairline: var(--color-nude-sand-300);
+  --border-color-strong: var(--color-nude-sand-400);
+  --border-color-accent: var(--color-desert-clay-300);
+  --border-color-accent-strong: var(--color-desert-clay-500);
+  --border-color-inverse: var(--color-muted-forest-500);
+
+  /* ── Typography (Montserrat) → text-<style> ─────────────── */
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display-64: 64px;
+  --text-display-64--line-height: 1.05;
+  --text-display-64--letter-spacing: -0.025em;
+  --text-display-64--font-weight: 600;
+
+  --text-h1-56: 56px;
+  --text-h1-56--line-height: 1.08;
+  --text-h1-56--letter-spacing: -0.025em;
+  --text-h1-56--font-weight: 600;
+
+  --text-stat-44: 44px;
+  --text-stat-44--line-height: 1.1;
+  --text-stat-44--letter-spacing: -0.02em;
+  --text-stat-44--font-weight: 600;
+
+  --text-h2-40: 40px;
+  --text-h2-40--line-height: 1.15;
+  --text-h2-40--letter-spacing: -0.02em;
+  --text-h2-40--font-weight: 600;
+
+  --text-h2-36: 36px;
+  --text-h2-36--line-height: 1.15;
+  --text-h2-36--letter-spacing: -0.02em;
+  --text-h2-36--font-weight: 600;
+
+  --text-h2-32: 32px;
+  --text-h2-32--line-height: 1.2;
+  --text-h2-32--letter-spacing: -0.02em;
+  --text-h2-32--font-weight: 600;
+
+  --text-h3-28: 28px;
+  --text-h3-28--line-height: 1.2;
+  --text-h3-28--letter-spacing: -0.015em;
+  --text-h3-28--font-weight: 600;
+
+  --text-quote-28: 28px;
+  --text-quote-28--line-height: 1.4;
+  --text-quote-28--letter-spacing: -0.01em;
+  --text-quote-28--font-weight: 500;
+
+  --text-h4-24: 24px;
+  --text-h4-24--line-height: 1.3;
+  --text-h4-24--letter-spacing: -0.015em;
+  --text-h4-24--font-weight: 600;
+
+  --text-title-22: 22px;
+  --text-title-22--line-height: 1.3;
+  --text-title-22--letter-spacing: -0.01em;
+  --text-title-22--font-weight: 600;
+
+  --text-title-20: 20px;
+  --text-title-20--line-height: 1.3;
+  --text-title-20--letter-spacing: -0.01em;
+  --text-title-20--font-weight: 600;
+
+  --text-title-16: 16px;
+  --text-title-16--line-height: 1.6;
+  --text-title-16--font-weight: 600;
+
+  --text-body-24: 24px;
+  --text-body-24--line-height: 1.4;
+  --text-body-24--font-weight: 400;
+
+  --text-body-20: 20px;
+  --text-body-20--line-height: 1.6;
+  --text-body-20--font-weight: 400;
+
+  --text-body-18: 18px;
+  --text-body-18--line-height: 1.5;
+  --text-body-18--font-weight: 400;
+
+  --text-body-17: 17px;
+  --text-body-17--line-height: 1.55;
+  --text-body-17--font-weight: 400;
+
+  --text-body-16: 16px;
+  --text-body-16--line-height: 1.55;
+  --text-body-16--font-weight: 400;
+
+  --text-body-15: 15px;
+  --text-body-15--line-height: 1.5;
+  --text-body-15--font-weight: 400;
+
+  --text-body-14: 14px;
+  --text-body-14--line-height: 1.4;
+  --text-body-14--font-weight: 400;
+
+  --text-body-13: 13px;
+  --text-body-13--line-height: 1.4;
+  --text-body-13--font-weight: 400;
+
+  --text-label-16: 16px;
+  --text-label-16--line-height: 1.25;
+  --text-label-16--font-weight: 500;
+
+  --text-label-15: 15px;
+  --text-label-15--line-height: 1.25;
+  --text-label-15--font-weight: 500;
+
+  --text-label-14: 14px;
+  --text-label-14--line-height: 1.25;
+  --text-label-14--font-weight: 500;
+
+  --text-label-13: 13px;
+  --text-label-13--line-height: 1.3;
+  --text-label-13--font-weight: 500;
+
+  --text-overline-13: 13px;
+  --text-overline-13--line-height: 1.3;
+  --text-overline-13--letter-spacing: 0.06em;
+  --text-overline-13--font-weight: 500;
+
+  --text-wordmark-15: 15px;
+  --text-wordmark-15--line-height: 1.5;
+  --text-wordmark-15--letter-spacing: 0.08em;
+  --text-wordmark-15--font-weight: 600;
+
+  /* ── Spacing → p-md, gap-xl, px-gutter … ────────────────── */
+  --spacing-2xs: 6px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 40px;
+  --spacing-4xl: 48px;
+  --spacing-5xl: 64px;
+  --spacing-6xl: 80px;
+  --spacing-gutter: 96px;
+  --spacing-section: 128px;
+
+  /* ── Radius / shadow / layout ───────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  --shadow-card: 0 10px 28px 0 rgb(90 83 76 / 0.16);
+
+  --container-page: 1512px;
+}
