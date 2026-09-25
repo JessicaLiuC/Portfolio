@@ -29,7 +29,7 @@ export function ListItem({ title, description, number, icon, divider = true, cla
           {title}
         </Text>
         {description && (
-          <Text variant="body-17" tone="secondary">
+          <Text variant="body-17" tone="secondary" className="whitespace-pre-line">
             {description}
           </Text>
         )}
