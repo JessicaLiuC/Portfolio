@@ -3,7 +3,7 @@
  * Primitives are the four Foundation ramps; components use the semantic
  * names only (bg-*, text-*, border-*), never the primitives.
  */
-@theme {
+@theme static {
   /* ── Primitives ─────────────────────────────────────────── */
   --color-nude-sand-50: #fbf9f8;
   --color-nude-sand-100: #f2ede8;
@@ -82,8 +82,6 @@
   --border-color-inverse: var(--color-muted-forest-500);
 
   /* ── Typography (Montserrat) → text-<style> ─────────────── */
-  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
-
   --text-display-64: 64px;
   --text-display-64--line-height: 1.05;
   --text-display-64--letter-spacing: -0.025em;
@@ -226,4 +224,9 @@
   --shadow-card: 0 10px 28px 0 rgb(90 83 76 / 0.16);
 
   --container-page: 1512px;
+}
+
+/* Inlined so it resolves where next/font sets --font-montserrat, not on :root. */
+@theme inline {
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }

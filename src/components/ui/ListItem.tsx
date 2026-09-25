@@ -18,7 +18,7 @@ export function ListItem({ title, description, number, icon, divider = true, cla
   return (
     <div className={cn("flex items-start gap-lg", divider && "border-t border-hairline py-xl", className)}>
       {number ? (
-        <Text as="span" variant="title-16" tone="accent">
+        <Text as="span" variant="title-16" tone="accent" className="tabular-nums">
           {number}
         </Text>
       ) : (
