@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { cn } from "@/lib/cn";
-import { Text } from "./Text";
 
 export type PolaroidProps = {
   caption: string;
@@ -10,34 +9,35 @@ export type PolaroidProps = {
   selected?: boolean;
   /** Tilt in degrees, for the travel wall. */
   rotate?: number;
-  /** Rendered width in px; geometry scales with it (Figma master is 300). */
-  width?: number;
+  /** Set the width here (default 300px, the Figma master). */
   className?: string;
 };
 
-/** Photo card with caption. Insets are in cqw so any width keeps the Figma proportions (18/300, 40/300). */
-export function Polaroid({ caption, src, alt = "", selected, rotate, width = 300, className }: PolaroidProps) {
+/**
+ * Photo card with caption. Everything inside is sized in cqw of the card, so any
+ * width is an exact rescale of the 300×360 Figma master (18px inset, Label/16 caption).
+ */
+export function Polaroid({ caption, src, alt = "", selected, rotate, className }: PolaroidProps) {
   return (
     <figure
-      style={{ width, rotate: rotate ? `${rotate}deg` : undefined }}
+      style={rotate ? { rotate: `${rotate}deg` } : undefined}
       className={cn(
-        "@container rounded-sm bg-page shadow-card",
+        // Own-box props can't use cqw (it resolves against an ancestor); % radius = 8px on 300×360.
+        "@container w-75 shrink-0 rounded-[2.667%/2.222%] bg-page font-medium leading-[1.25] shadow-card",
         selected && "outline-3 -outline-offset-3 outline-(--border-color-accent-strong)",
         className,
       )}
     >
       <div className="relative m-[6cqw] mb-0 grid aspect-square place-items-center overflow-hidden bg-surface-strong">
         {src ? (
-          <Image src={src} alt={alt} fill sizes={`${width}px`} className="object-cover" />
+          <Image src={src} alt={alt} fill sizes="300px" className="object-cover" />
         ) : (
-          <Text as="span" variant="label-15" tone="muted">
-            Add a photo
-          </Text>
+          <span className="text-[length:5cqw] text-muted">Add a photo</span>
         )}
       </div>
-      <Text as="figcaption" variant="label-16" tone={src ? "primary" : "muted"} className="px-[6cqw] pt-[6cqw] pb-[13.33cqw]">
+      <figcaption className={cn("px-[6cqw] pt-[6cqw] pb-[13.33cqw] text-[length:5.333cqw]", src ? "text-primary" : "text-muted")}>
         {caption}
-      </Text>
+      </figcaption>
     </figure>
   );
 }
