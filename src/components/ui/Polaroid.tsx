@@ -23,7 +23,10 @@ export function Polaroid({ caption, src, alt = "", selected, rotate, className }
       style={rotate ? { rotate: `${rotate}deg` } : undefined}
       className={cn(
         // Own-box props can't use cqw (it resolves against an ancestor); % radius = 8px on 300×360.
-        "@container w-75 shrink-0 rounded-[2.667%/2.222%] bg-page font-medium leading-[1.25] shadow-card",
+        "@container shrink-0 rounded-[2.667%/2.222%] bg-page font-medium leading-[1.25] shadow-card",
+        // cn() doesn't merge conflicting utilities, so only fall back to 300px when no width is passed
+        // (otherwise e.g. w-55 would lose to w-75 by Tailwind's CSS order).
+        !/(^|\s)w-/.test(className ?? "") && "w-75",
         selected && "outline-3 -outline-offset-3 outline-(--border-color-accent-strong)",
         className,
       )}
