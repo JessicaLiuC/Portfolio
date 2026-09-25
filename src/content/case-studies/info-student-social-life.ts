@@ -129,7 +129,7 @@ export const infoStudentSocialLife: CaseStudy = {
     },
     {
       title: "Project vlog",
-      blocks: [{ kind: "video", label: "Vlog video" }],
+      blocks: [{ kind: "slot", label: "Vlog video", height: 742 }],
     },
   ],
 };

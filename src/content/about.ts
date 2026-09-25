@@ -4,7 +4,7 @@ export const about = {
     "I’m a UX developer passionate about building intuitive, joyful digital experiences. With a background in Human Computer Interaction and Computer Science, I bridge creativity and logic to bring ideas to life through thoughtful, data-driven design.",
     "Currently working as a Frontend Engineer in Tricuss AI, where I utilize the intersection of technology and human behavior knowledge in building the AI co-researcher platform, in helping lab researchers to advance their workflow.",
   ],
-  photos: { paris: "/photos/paris.jpg", tokyo: "/photos/tokyo.jpg" },
+  photos: { paris: "/photos/paris.png", tokyo: "/photos/tokyo.png" },
   outside: { title: "Outside of work", subline: "I am a big fan of music and travel." },
   music: {
     title: "Lately on repeat",

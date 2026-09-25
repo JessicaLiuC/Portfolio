@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Chip, ListItem, Stat, Step, Text } from "@/components/ui";
+import Link from "next/link";
+import { Chip, ListItem, SectionHeading, Stat, Step, Text } from "@/components/ui";
 import type { Block, Media } from "@/content/case-studies/types";
 import { cn } from "@/lib/cn";
 
@@ -50,14 +51,45 @@ function BlockView(b: Block) {
           {b.text}
         </Text>
       );
-    case "video":
-      return b.src ? (
-        <video src={b.src} controls className="aspect-[1320/742] w-full rounded-lg bg-surface-strong" aria-label={b.label} />
+    case "slot": {
+      const aspect = { aspectRatio: `1320 / ${b.height}` };
+      return b.video ? (
+        <video src={b.video} controls style={aspect} className="w-full rounded-lg bg-surface-strong" aria-label={b.label} />
       ) : (
-        <div className="grid aspect-[1320/742] w-full place-items-center rounded-lg bg-surface-strong">
+        <div style={aspect} className="grid w-full place-items-center rounded-lg bg-surface-strong">
           <Text as="span" variant="body-20" tone="muted" className="leading-[1.3] font-medium">
             {b.label}
           </Text>
+        </div>
+      );
+    }
+    case "link": {
+      const cls = "self-start leading-[1.4] font-medium";
+      return b.href ? (
+        <Text as={Link} href={b.href} variant="body-18" tone="accent" className={cn(cls, "hover:text-accent-strong")}>
+          {b.label}
+        </Text>
+      ) : (
+        <Text as="span" variant="body-18" tone="accent" className={cls}>
+          {b.label}
+        </Text>
+      );
+    }
+    case "heading":
+      return <SectionHeading title={b.text} />;
+    case "columns":
+      return (
+        <div className="grid gap-3xl md:grid-flow-col md:auto-cols-fr">
+          {b.items.map((c) => (
+            <div key={c.title} className="flex flex-col gap-sm border-t border-hairline pt-[28px]">
+              <Text as="h3" variant="h4-24">
+                {c.title}
+              </Text>
+              <Text variant="body-17" tone="secondary" className="whitespace-pre-line">
+                {c.text}
+              </Text>
+            </div>
+          ))}
         </div>
       );
     case "tags":
